@@ -1,0 +1,17 @@
+{
+    "name": "Мой Календарь",
+    "short_name": "Календарь",
+    "description": "Простой календарь PWA",
+    "start_url": "/",
+    "display": "standalone",
+    "background_color": "#ffffff",
+    "theme_color": "#4285f4",
+    "orientation": "portrait",
+    "icons": [
+        {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        }
+    ]
+}
