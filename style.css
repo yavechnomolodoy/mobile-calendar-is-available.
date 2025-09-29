@@ -65,7 +65,7 @@ body {
 }
 
 .calendar-header h2 {
-    font-size: 1.3rem;
+    font-size: 1.8rem; /* ← Увеличили с 1.3rem */
     font-weight: 500;
 }
 
@@ -125,5 +125,6 @@ body {
     }
 
 }
+
 
 
