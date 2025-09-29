@@ -57,9 +57,14 @@ function generateCalendar() {
     
     // Добавляем дни текущего месяца
     const today = new Date();
+    let dayCounter = startDayIndex + 1; // Счётчик для определения дня недели
+    
     for (let i = 1; i <= lastDay.getDate(); i++) {
         const dayElement = document.createElement('div');
         dayElement.textContent = i;
+        
+        // Определяем день недели (0-воскресенье, 1-понедельник...6-суббота)
+        const dayOfWeek = (dayCounter - 1) % 7;
         
         // Проверяем, является ли день сегодняшним
         if (i === today.getDate() && 
@@ -68,7 +73,9 @@ function generateCalendar() {
             dayElement.classList.add('today');
         }
         
+        // Суббота и воскресенье будут красными через CSS
         daysContainer.appendChild(dayElement);
+        dayCounter++;
     }
 }
 
