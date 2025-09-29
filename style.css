@@ -157,7 +157,7 @@ body {
 /* Адаптация для телефонов */
 @media (min-width: 361px) and (max-width: 767px) {
     .days {
-        row-gap: 1.62px; /* Ещё -15% для телефонов (1.91px × 0.85) */
+        row-gap: 1.3px; /* Уменьшили на 20% (было 1.62px × 0.8) */
     }
     
     .days div {
@@ -197,3 +197,4 @@ body {
         font-size: 2.5rem;
     }
 }
+
