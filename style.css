@@ -14,24 +14,24 @@ body {
 
 .container {
     max-width: 100%;
-    min-height: 100vh;
     background: white;
     display: flex;
     flex-direction: column;
+    height: auto; /* Убрали растягивание на всю высоту */
+    min-height: auto;
 }
 
 /* Шапка - БОЛЬШАЯ */
 .header {
     background: #4285f4;
     color: white;
-    padding: 25px 12px; /* Увеличили отступы */
+    padding: 25px 12px;
     text-align: center;
     box-shadow: 0 2px 4px rgba(0,0,0,0.2);
-    flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
-    min-height: 120px; /* Минимальная высота шапки */
+    min-height: 120px;
 }
 
 .current-time {
@@ -40,14 +40,14 @@ body {
     font-family: 'Courier New', monospace;
 }
 
-/* Календарь - ШИРОКИЙ */
+/* Календарь - ШИРОКИЙ но НЕ растянутый по высоте */
 .calendar {
     padding: 10px;
-    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    min-height: 0;
-    width: 100%; /* Растягиваем на всю ширину */
+    width: 100%;
+    height: auto; /* Не растягиваем по высоте */
+    flex-grow: 0; /* Отключаем растягивание */
 }
 
 .calendar-header {
@@ -55,17 +55,16 @@ body {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 10px;
-    flex-shrink: 0;
 }
 
 .calendar-header button {
     background: #4285f4;
     color: white;
     border: none;
-    width: 40px; /* Увеличили кнопки */
+    width: 40px;
     height: 40px;
     border-radius: 50%;
-    font-size: 1.2rem; /* Увеличили стрелки */
+    font-size: 1.2rem;
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -73,7 +72,7 @@ body {
 }
 
 .calendar-header h2 {
-    font-size: 3rem; /* Увеличили заголовок месяца */
+    font-size: 3rem;
     font-weight: 500;
 }
 
@@ -85,12 +84,11 @@ body {
     font-weight: 500;
     margin-bottom: 5px;
     color: #666;
-    flex-shrink: 0;
 }
 
 .weekdays div {
-    padding: 8px 0; /* Увеличили отступы */
-    font-size: 1.8rem; /* Увеличили дни недели */
+    padding: 8px 0;
+    font-size: 1.8rem;
     font-weight: 900;
 }
 
@@ -104,24 +102,24 @@ body {
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 3px; /* Увеличили отступы между ячейками */
-    flex-grow: 1;
-    min-height: 0;
-    width: 100%; /* Растягиваем на всю ширину */
+    gap: 3px;
+    width: 100%;
+    height: auto; /* Не растягиваем по высоте */
+    flex-grow: 0; /* Отключаем растягивание */
 }
 
 .days div {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 5px; /* Увеличили скругление */
+    border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
-    font-size: 2rem; /* УВЕЛИЧИЛИ ЧИСЛА */
+    font-size: 2rem; /* БОЛЬШИЕ числа */
     font-weight: 900;
     aspect-ratio: 1; /* Квадратные ячейки */
-    min-height: 0;
-    width: 100%; /* Широкие ячейки */
+    width: 100%;
+    min-height: 40px; /* Фиксированная минимальная высота */
 }
 
 /* Субботние и воскресные дни (6-й и 7-й столбцы) */
@@ -151,6 +149,7 @@ body {
     
     .days div {
         font-size: 1.6rem;
+        min-height: 35px;
     }
     
     .weekdays div {
@@ -174,35 +173,39 @@ body {
     }
     
     .days div {
-        font-size: 2rem; /* БОЛЬШИЕ числа на телефонах */
+        font-size: 2rem;
+        min-height: 45px;
     }
     
     .weekdays div {
-        font-size: 1.8rem; /* БОЛЬШИЕ дни недели */
+        font-size: 1.8rem;
     }
 }
 
 /* Адаптация для компьютеров */
 @media (min-width: 768px) {
     .container {
-        max-width: 600px; /* ШИРЕ на компьютерах */
-        margin: 0 auto;
-        min-height: 500px;
-        height: 100vh;
-        max-height: 700px;
+        max-width: 600px;
+        margin: 20px auto; /* Отступы сверху и снизу */
     }
     
     .header {
         min-height: 140px;
         padding: 30px 12px;
+        border-radius: 10px 10px 0 0;
     }
     
     .current-time {
-        font-size: 5rem; /* ОГРОМНЫЕ часы на компьютере */
+        font-size: 5rem;
+    }
+    
+    .calendar {
+        border-radius: 0 0 10px 10px;
     }
     
     .days div {
-        font-size: 2.2rem; /* ОЧЕНЬ БОЛЬШИЕ числа */
+        font-size: 2.2rem;
+        min-height: 50px;
     }
     
     .weekdays div {
