@@ -20,39 +20,41 @@ body {
     flex-direction: column;
 }
 
-/* Шапка */
+/* Шапка - БОЛЬШАЯ */
 .header {
     background: #4285f4;
     color: white;
-    padding: 10px 12px;
+    padding: 25px 12px; /* Увеличили отступы */
     text-align: center;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(0,0,0,0.2);
     flex-shrink: 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    min-height: 120px; /* Минимальная высота шапки */
 }
 
 .current-time {
-    font-size: 3.3rem; /* Самый большой размер */
+    font-size: 4.5rem; /* ОЧЕНЬ БОЛЬШИЕ часы */
     font-weight: 900;
     font-family: 'Courier New', monospace;
 }
 
-/* Календарь */
+/* Календарь - ШИРОКИЙ */
 .calendar {
-    padding: 8px;
+    padding: 10px;
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     min-height: 0;
+    width: 100%; /* Растягиваем на всю ширину */
 }
 
 .calendar-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 8px;
+    margin-bottom: 10px;
     flex-shrink: 0;
 }
 
@@ -60,10 +62,10 @@ body {
     background: #4285f4;
     color: white;
     border: none;
-    width: 30px;
-    height: 30px;
+    width: 40px; /* Увеличили кнопки */
+    height: 40px;
     border-radius: 50%;
-    font-size: 0.9rem;
+    font-size: 1.2rem; /* Увеличили стрелки */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -71,7 +73,7 @@ body {
 }
 
 .calendar-header h2 {
-    font-size: 2.75rem; /* Самый большой размер */
+    font-size: 3rem; /* Увеличили заголовок месяца */
     font-weight: 500;
 }
 
@@ -81,14 +83,14 @@ body {
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
     font-weight: 500;
-    margin-bottom: 4px;
+    margin-bottom: 5px;
     color: #666;
     flex-shrink: 0;
 }
 
 .weekdays div {
-    padding: 4px 0;
-    font-size: 1.6rem; /* Самый большой размер */
+    padding: 8px 0; /* Увеличили отступы */
+    font-size: 1.8rem; /* Увеличили дни недели */
     font-weight: 900;
 }
 
@@ -98,27 +100,28 @@ body {
     color: #ff4444;
 }
 
-/* Ячейки дней */
+/* Ячейки дней - ШИРОКИЕ и с БОЛЬШИМИ числами */
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
+    gap: 3px; /* Увеличили отступы между ячейками */
     flex-grow: 1;
     min-height: 0;
+    width: 100%; /* Растягиваем на всю ширину */
 }
 
 .days div {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 3px;
+    border-radius: 5px; /* Увеличили скругление */
     cursor: pointer;
     transition: background-color 0.2s;
-    font-size: 1.6rem; /* Самый большой размер */
+    font-size: 2rem; /* УВЕЛИЧИЛИ ЧИСЛА */
     font-weight: 900;
     aspect-ratio: 1; /* Квадратные ячейки */
     min-height: 0;
-    width: 100%; /* Важно для квадратной формы */
+    width: 100%; /* Широкие ячейки */
 }
 
 /* Субботние и воскресные дни (6-й и 7-й столбцы) */
@@ -139,7 +142,7 @@ body {
 /* Адаптация для очень маленьких экранов */
 @media (max-width: 360px) {
     .current-time {
-        font-size: 2.8rem;
+        font-size: 3.5rem;
     }
     
     .calendar-header h2 {
@@ -147,60 +150,66 @@ body {
     }
     
     .days div {
-        font-size: 1.3rem;
+        font-size: 1.6rem;
     }
     
     .weekdays div {
-        font-size: 1.3rem;
+        font-size: 1.4rem;
     }
 }
 
 /* Адаптация для телефонов */
 @media (min-width: 361px) and (max-width: 767px) {
-    .days {
-        gap: 1px; /* Минимальные отступы для телефонов */
-    }
-    
-    .days div {
-        font-size: 1.6rem; /* Самый большой размер */
-    }
-    
-    .weekdays div {
-        font-size: 1.6rem; /* Самый большой размер */
-    }
-    
-    .calendar-header h2 {
-        font-size: 2.75rem; /* Самый большой размер */
+    .header {
+        min-height: 100px;
+        padding: 20px 12px;
     }
     
     .current-time {
-        font-size: 3.3rem; /* Самый большой размер */
+        font-size: 4rem;
+    }
+    
+    .calendar-header h2 {
+        font-size: 2.8rem;
+    }
+    
+    .days div {
+        font-size: 2rem; /* БОЛЬШИЕ числа на телефонах */
+    }
+    
+    .weekdays div {
+        font-size: 1.8rem; /* БОЛЬШИЕ дни недели */
     }
 }
 
 /* Адаптация для компьютеров */
 @media (min-width: 768px) {
     .container {
-        max-width: 500px;
+        max-width: 600px; /* ШИРЕ на компьютерах */
         margin: 0 auto;
         min-height: 500px;
         height: 100vh;
-        max-height: 600px;
+        max-height: 700px;
     }
     
-    .days div {
-        font-size: 1.6rem; /* Самый большой размер */
-    }
-    
-    .weekdays div {
-        font-size: 1.6rem; /* Самый большой размер */
-    }
-    
-    .calendar-header h2 {
-        font-size: 2.75rem; /* Самый большой размер */
+    .header {
+        min-height: 140px;
+        padding: 30px 12px;
     }
     
     .current-time {
-        font-size: 3.3rem; /* Самый большой размер */
+        font-size: 5rem; /* ОГРОМНЫЕ часы на компьютере */
+    }
+    
+    .days div {
+        font-size: 2.2rem; /* ОЧЕНЬ БОЛЬШИЕ числа */
+    }
+    
+    .weekdays div {
+        font-size: 2rem;
+    }
+    
+    .calendar-header h2 {
+        font-size: 3.2rem;
     }
 }
