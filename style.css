@@ -98,7 +98,7 @@ body {
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s;
-    font-size: 2rem; /* ← ЭТУ СТРОКУ ДОБАВИЛИ (в 3 раза больше) */
+    font-size: 1,5rem; /* ← ЭТУ СТРОКУ ДОБАВИЛИ (в 3 раза больше) */
 }
 
 .days div:hover {
@@ -125,4 +125,5 @@ body {
     }
 
 }
+
 
