@@ -44,17 +44,16 @@ body {
 }
 
 .current-time {
-    font-size: 1.1rem; /* Увеличили до размера "Мой Календарь" */
-    font-weight: 500; /* Сделали такой же жирности */
+    font-size: 3.3rem; /* Увеличили в 3 раза (было 1.1rem) */
+    font-weight: 500;
     font-family: 'Courier New', monospace;
     margin-bottom: 2px;
 }
-/* Календарь */
-.calendar {
-    padding: 8px; /* Уменьшили в 2 раза */
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
+.current-time {
+    font-size: 3.3rem; /* Увеличили в 3 раза (было 1.1rem) */
+    font-weight: 500;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 2px;
 }
 
 .calendar-header {
@@ -182,6 +181,7 @@ body {
         font-size: 1rem; /* Уменьшили */
     }
 }
+
 
 
 
