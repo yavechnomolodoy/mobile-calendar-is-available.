@@ -112,13 +112,13 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 2px; /* Уменьшили */
+    border-radius: 2px;
     cursor: pointer;
     transition: background-color 0.2s;
-    font-size: 1.6rem; /* УВЕЛИЧИЛИ в 2 раза (было 0.9rem) */
-    min-height: 25px; /* Уменьшили */
+    font-size: 1.6rem;
+    min-height: 18px; /* Уменьшили в 1.5 раза (было 25px) */
+    padding: 2px 0; /* Добавили маленький внутренний отступ */
 }
-
 .days div:hover {
     background: #f0f0f0;
 }
@@ -139,17 +139,17 @@ body {
     }
     
     .days div {
-        font-size: 1.4rem; /* УВЕЛИЧИЛИ */
-        min-height: 20px; /* Уменьшили */
-    }
+    font-size: 1.4rem;
+    min-height: 14px; /* Уменьшили в 1.5 раза (было 20px) */
+}
 }
 
 /* Адаптация для телефонов */
 @media (min-width: 361px) and (max-width: 767px) {
     .days div {
-        font-size: 1.6rem; /* УВЕЛИЧИЛИ */
-        min-height: 30px; /* Уменьшили */
-    }
+    font-size: 1.6rem;
+    min-height: 20px; /* Уменьшили в 1.5 раза (было 30px) */
+}
     
     .current-date {
         font-size: 1rem; /* Уменьшили */
@@ -166,13 +166,14 @@ body {
         max-height: 500px; /* Уменьшили */
     }
     
-    .days div {
-        font-size: 1.6rem; /* УВЕЛИЧИЛИ */
-        min-height: 35px; /* Уменьшили */
-    }
+   .days div {
+    font-size: 1.6rem;
+    min-height: 24px; /* Уменьшили в 1.5 раза (было 35px) */
+}
     
     .calendar-header h2 {
         font-size: 1rem; /* Уменьшили */
     }
 }
+
 
