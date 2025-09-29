@@ -1,5 +1,4 @@
 // Основные элементы
-const currentDateElement = document.getElementById('currentDate');
 const monthYearElement = document.getElementById('monthYear');
 const daysContainer = document.getElementById('daysContainer');
 const prevMonthButton = document.getElementById('prevMonth');
@@ -7,17 +6,6 @@ const nextMonthButton = document.getElementById('nextMonth');
 
 // Текущая дата
 let currentDate = new Date();
-
-// Функция обновления отображаемой даты
-function updateCurrentDate() {
-    const options = { 
-        weekday: 'long', 
-        month: 'long', 
-        day: 'numeric' 
-    };
-    let dateString = currentDate.toLocaleDateString('ru-RU', options);
-    currentDateElement.textContent = dateString;
-}
 
 // Функция генерации календаря
 function generateCalendar() {
@@ -57,14 +45,11 @@ function generateCalendar() {
     
     // Добавляем дни текущего месяца
     const today = new Date();
-    let dayCounter = startDayIndex + 1; // Счётчик для определения дня недели
+    let dayCounter = startDayIndex + 1;
     
     for (let i = 1; i <= lastDay.getDate(); i++) {
         const dayElement = document.createElement('div');
         dayElement.textContent = i;
-        
-        // Определяем день недели (0-воскресенье, 1-понедельник...6-суббота)
-        const dayOfWeek = (dayCounter - 1) % 7;
         
         // Проверяем, является ли день сегодняшним
         if (i === today.getDate() && 
@@ -73,7 +58,6 @@ function generateCalendar() {
             dayElement.classList.add('today');
         }
         
-        // Суббота и воскресенье будут красными через CSS
         daysContainer.appendChild(dayElement);
         dayCounter++;
     }
@@ -82,13 +66,11 @@ function generateCalendar() {
 // Обработчики кнопок
 prevMonthButton.addEventListener('click', () => {
     currentDate.setMonth(currentDate.getMonth() - 1);
-    updateCurrentDate();
     generateCalendar();
 });
 
 nextMonthButton.addEventListener('click', () => {
     currentDate.setMonth(currentDate.getMonth() + 1);
-    updateCurrentDate();
     generateCalendar();
 });
 
@@ -111,5 +93,4 @@ updateCurrentTime();
 setInterval(updateCurrentTime, 1000);
 
 // Инициализация
-updateCurrentDate();
 generateCalendar();
