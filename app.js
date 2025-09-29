@@ -12,13 +12,10 @@ let currentDate = new Date();
 function updateCurrentDate() {
     const options = { 
         weekday: 'long', 
-        year: 'numeric', 
         month: 'long', 
         day: 'numeric' 
     };
     let dateString = currentDate.toLocaleDateString('ru-RU', options);
-    // Убираем "г." из даты
-    dateString = dateString.replace(' г.', '');
     currentDateElement.textContent = dateString;
 }
 
