@@ -134,8 +134,8 @@ body {
     }
     
     .calendar-header h2 {
-        font-size: 1rem;
-    }
+    font-size: 2.5rem; /* Увеличили в 2.5 раза (было 1rem) */
+}
     
     .days {
         gap: 0.5px; /* ← ДОБАВЬ ЭТУ СТРОКУ */
@@ -159,8 +159,7 @@ body {
     }
     
     .current-date {
-        font-size: 1rem;
-    }
+    font-size: 2.25rem; /* Увеличили в 2.5 раза (было 0.9rem) */
 }
 /* Адаптация для компьютеров */
 @media (min-width: 768px) {
@@ -178,9 +177,10 @@ body {
 }
     
     .calendar-header h2 {
-        font-size: 1rem; /* Уменьшили */
-    }
+    font-size: 2.5rem; /* Увеличили в 2.5 раза (было 1rem) */
 }
+}
+
 
 
 
