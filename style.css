@@ -9,7 +9,7 @@ body {
     font-family: system-ui, -apple-system, sans-serif;
     background: #f5f5f5;
     color: #333;
-    line-height: 1.4;
+    line-height: 1.2;
 }
 
 .container {
@@ -24,33 +24,33 @@ body {
 .header {
     background: #4285f4;
     color: white;
-    padding: 12px 16px;
+    padding: 8px 12px; /* Уменьшили в 2 раза */
     text-align: center;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 1px 2px rgba(0,0,0,0.1); /* Уменьшили */
     flex-shrink: 0;
 }
 
 .header h1 {
-    font-size: 1.3rem;
+    font-size: 1.1rem; /* Уменьшили */
     font-weight: 500;
-    margin-bottom: 6px;
+    margin-bottom: 3px; /* Уменьшили */
 }
 
 .current-date {
-    font-size: 1.1rem;
+    font-size: 1rem; /* Уменьшили */
     font-weight: 500;
-    margin-bottom: 4px;
+    margin-bottom: 2px; /* Уменьшили */
 }
 
 .current-time {
-    font-size: 0.9rem;
+    font-size: 0.8rem; /* Уменьшили */
     opacity: 0.9;
     font-family: 'Courier New', monospace;
 }
 
 /* Календарь */
 .calendar {
-    padding: 12px;
+    padding: 8px; /* Уменьшили в 2 раза */
     flex-grow: 1;
     display: flex;
     flex-direction: column;
@@ -60,7 +60,7 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: 8px; /* Уменьшили в 2 раза */
     flex-shrink: 0;
 }
 
@@ -68,10 +68,10 @@ body {
     background: #4285f4;
     color: white;
     border: none;
-    width: 35px;
-    height: 35px;
+    width: 30px; /* Уменьшили */
+    height: 30px; /* Уменьшили */
     border-radius: 50%;
-    font-size: 1rem;
+    font-size: 0.9rem; /* Уменьшили */
     cursor: pointer;
     display: flex;
     align-items: center;
@@ -79,7 +79,7 @@ body {
 }
 
 .calendar-header h2 {
-    font-size: 1.3rem;
+    font-size: 1.1rem; /* Уменьшили */
     font-weight: 500;
 }
 
@@ -89,21 +89,21 @@ body {
     grid-template-columns: repeat(7, 1fr);
     text-align: center;
     font-weight: 500;
-    margin-bottom: 8px;
+    margin-bottom: 4px; /* Уменьшили в 2 раза */
     color: #666;
     flex-shrink: 0;
 }
 
 .weekdays div {
-    padding: 6px 0;
-    font-size: 0.9rem;
+    padding: 4px 0; /* Уменьшили в 2 раза */
+    font-size: 0.8rem; /* Уменьшили */
 }
 
 /* Ячейки дней */
 .days {
     display: grid;
     grid-template-columns: repeat(7, 1fr);
-    gap: 2px;
+    gap: 1px; /* Уменьшили в 2 раза */
     flex-grow: 1;
 }
 
@@ -111,11 +111,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 4px;
+    border-radius: 2px; /* Уменьшили */
     cursor: pointer;
     transition: background-color 0.2s;
-    font-size: 0.9rem;
-    min-height: 30px;
+    font-size: 1.6rem; /* УВЕЛИЧИЛИ в 2 раза (было 0.9rem) */
+    min-height: 25px; /* Уменьшили */
 }
 
 .days div:hover {
@@ -130,47 +130,47 @@ body {
 /* Адаптация для очень маленьких экранов */
 @media (max-width: 360px) {
     .calendar {
-        padding: 8px;
+        padding: 6px; /* Уменьшили */
     }
     
     .calendar-header h2 {
-        font-size: 1.1rem;
+        font-size: 1rem; /* Уменьшили */
     }
     
     .days div {
-        font-size: 0.8rem;
-        min-height: 25px;
+        font-size: 1.4rem; /* УВЕЛИЧИЛИ */
+        min-height: 20px; /* Уменьшили */
     }
 }
 
 /* Адаптация для телефонов */
 @media (min-width: 361px) and (max-width: 767px) {
     .days div {
-        font-size: 1rem;
-        min-height: 35px;
+        font-size: 1.6rem; /* УВЕЛИЧИЛИ */
+        min-height: 30px; /* Уменьшили */
     }
     
     .current-date {
-        font-size: 1.2rem;
+        font-size: 1rem; /* Уменьшили */
     }
 }
 
 /* Адаптация для компьютеров */
 @media (min-width: 768px) {
     .container {
-        max-width: 500px;
+        max-width: 450px; /* Уменьшили */
         margin: 0 auto;
-        min-height: 500px;
+        min-height: 450px; /* Уменьшили */
         height: 100vh;
-        max-height: 600px;
+        max-height: 500px; /* Уменьшили */
     }
     
     .days div {
-        font-size: 0.9rem;
-        min-height: 40px;
+        font-size: 1.6rem; /* УВЕЛИЧИЛИ */
+        min-height: 35px; /* Уменьшили */
     }
     
     .calendar-header h2 {
-        font-size: 1.2rem;
+        font-size: 1rem; /* Уменьшили */
     }
 }
