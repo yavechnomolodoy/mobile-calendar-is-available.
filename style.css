@@ -162,7 +162,7 @@ body {
     
     .days div {
         font-size: 1.6rem;
-        min-height: 20px;
+        min-height: 14px; /* Уменьшили на 30% (было 20px × 0.7) */
     }
     
     .weekdays div {
@@ -197,5 +197,6 @@ body {
         font-size: 2.5rem;
     }
 }
+
 
 
