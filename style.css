@@ -189,6 +189,16 @@ body {
         margin: 20px auto; /* Отступы сверху и снизу */
     }
     
+  /* Адаптация для компьютеров */
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        min-height: 650px; /* Увеличили высоту */
+        height: auto; /* Разрешаем растягивание */
+        max-height: none; /* Убираем ограничение */
+    }
+    
     .header {
         min-height: 140px;
         padding: 30px 12px;
@@ -201,6 +211,13 @@ body {
     
     .calendar {
         border-radius: 0 0 10px 10px;
+        flex-grow: 1; /* Разрешаем растягивание */
+        height: auto;
+    }
+    
+    .days {
+        flex-grow: 1; /* Разрешаем растягивание */
+        height: auto;
     }
     
     .days div {
@@ -216,5 +233,3 @@ body {
         font-size: 3.2rem;
     }
 }
-
-
