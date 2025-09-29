@@ -199,6 +199,16 @@ body {
         max-height: none; /* Убираем ограничение */
     }
     
+    /* Адаптация для компьютеров */
+@media (min-width: 768px) {
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        min-height: 650px; /* Увеличили высоту */
+        height: auto; /* Разрешаем растягивание */
+        max-height: none; /* Убираем ограничение */
+    }
+    
     .header {
         min-height: 140px;
         padding: 30px 12px;
