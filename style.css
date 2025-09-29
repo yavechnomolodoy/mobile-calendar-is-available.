@@ -217,7 +217,4 @@ body {
     }
 }
 
-/* Временная проверка - удалите после теста */
-body {
-    border: 5px solid red !important;
-}
+
