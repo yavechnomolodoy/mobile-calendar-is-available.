@@ -85,4 +85,22 @@ nextMonthButton.addEventListener('click', () => {
 
 // Инициализация
 updateCurrentDate();
+
 generateCalendar();
+// Функция для обновления времени
+function updateCurrentTime() {
+    const now = new Date();
+    const timeElement = document.getElementById('currentTime');
+    
+    if (timeElement) {
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        const seconds = String(now.getSeconds()).padStart(2, '0');
+        
+        timeElement.textContent = `${hours}:${minutes}:${seconds}`;
+    }
+}
+
+// Запускаем часы и обновляем каждую секунду
+updateCurrentTime();
+setInterval(updateCurrentTime, 1000);
