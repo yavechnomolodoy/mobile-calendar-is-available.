@@ -16,7 +16,10 @@ function updateCurrentDate() {
         month: 'long', 
         day: 'numeric' 
     };
-    currentDateElement.textContent = currentDate.toLocaleDateString('ru-RU', options);
+    let dateString = currentDate.toLocaleDateString('ru-RU', options);
+    // Убираем "г." из даты
+    dateString = dateString.replace(' г.', '');
+    currentDateElement.textContent = dateString;
 }
 
 // Функция генерации календаря
@@ -24,11 +27,13 @@ function generateCalendar() {
     const year = currentDate.getFullYear();
     const month = currentDate.getMonth();
     
-    // Обновляем заголовок (месяц и год)
-    monthYearElement.textContent = currentDate.toLocaleDateString('ru-RU', { 
+    // Обновляем заголовок (месяц и год) без "г."
+    let monthYearString = currentDate.toLocaleDateString('ru-RU', { 
         month: 'long', 
         year: 'numeric' 
     });
+    monthYearString = monthYearString.replace(' г.', '');
+    monthYearElement.textContent = monthYearString;
     
     // Очищаем контейнер дней
     daysContainer.innerHTML = '';
@@ -83,10 +88,6 @@ nextMonthButton.addEventListener('click', () => {
     generateCalendar();
 });
 
-// Инициализация
-updateCurrentDate();
-
-generateCalendar();
 // Функция для обновления времени
 function updateCurrentTime() {
     const now = new Date();
@@ -104,3 +105,7 @@ function updateCurrentTime() {
 // Запускаем часы и обновляем каждую секунду
 updateCurrentTime();
 setInterval(updateCurrentTime, 1000);
+
+// Инициализация
+updateCurrentDate();
+generateCalendar();
