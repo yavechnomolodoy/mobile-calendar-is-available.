@@ -37,11 +37,7 @@ body {
     font-weight: 500;
     margin-bottom: 5px;
 }
-<header class="header">
-    <h1>Мой Календарь</h1>
-    <div class="current-date" id="currentDate"></div>
-    <div class="current-time" id="currentTime"></div> <!-- Добавили эту строку -->
-</header>
+
 .current-time {
     font-size: 1.1rem; /* Размер для часов */
     opacity: 0.9;
@@ -134,6 +130,7 @@ body {
     }
 
 }
+
 
 
 
