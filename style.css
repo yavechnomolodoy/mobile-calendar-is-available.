@@ -38,7 +38,7 @@ body {
 }
 
 .current-date {
-    font-size: 0.9rem; /* Немного уменьшили дату */
+    font-size: 2.25rem; /* Увеличили в 2.5 раза (было 0.9rem) */
     font-weight: 500;
     margin-bottom: 2px;
 }
@@ -79,7 +79,7 @@ body {
 }
 
 .calendar-header h2 {
-    font-size: 1.1rem; /* Уменьшили */
+    font-size: 2.75rem; /* Увеличили в 2.5 раза (было 1.1rem) */
     font-weight: 500;
 }
 
@@ -181,6 +181,7 @@ body {
         font-size: 1rem; /* Уменьшили */
     }
 }
+
 
 
 
