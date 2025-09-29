@@ -45,13 +45,7 @@ body {
 
 .current-time {
     font-size: 3.3rem; /* Увеличили в 3 раза (было 1.1rem) */
-    font-weight: 500;
-    font-family: 'Courier New', monospace;
-    margin-bottom: 2px;
-}
-.current-time {
-    font-size: 3.3rem; /* Увеличили в 3 раза (было 1.1rem) */
-    font-weight: 500;
+    font-weight: 700;
     font-family: 'Courier New', monospace;
     margin-bottom: 2px;
 }
@@ -180,6 +174,7 @@ body {
     font-size: 2.5rem; /* Увеличили в 2.5 раза (было 1rem) */
 }
 }
+
 
 
 
