@@ -184,61 +184,60 @@ body {
 /* Адаптация для компьютеров */
 @media (min-width: 768px) {
     .container {
-        max-width: 480px; /* Уменьшили на 20% (600px × 0.8) */
-        margin: 16px auto; /* Уменьшили на 20% (20px × 0.8) */
+        max-width: 384px; /* Уменьшили на 20% (480px × 0.8) */
+        margin: 13px auto; /* Уменьшили на 20% (16px × 0.8) */
         min-height: auto;
         height: auto;
         max-height: none;
     }
     
     .header {
-        min-height: 112px; /* Уменьшили на 20% (140px × 0.8) */
-        padding: 24px 12px; /* Уменьшили на 20% (30px × 0.8) */
-        border-radius: 8px 8px 0 0; /* Уменьшили на 20% (10px × 0.8) */
+        min-height: 90px; /* Уменьшили на 20% (112px × 0.8) */
+        padding: 19px 12px; /* Уменьшили на 20% (24px × 0.8) */
+        border-radius: 6px 6px 0 0; /* Уменьшили на 20% (8px × 0.8) */
     }
     
     .current-time {
-        font-size: 4rem; /* Уменьшили на 20% (5rem × 0.8) */
+        font-size: 3.2rem; /* Уменьшили на 20% (4rem × 0.8) */
     }
     
     .calendar {
-        border-radius: 0 0 8px 8px; /* Уменьшили на 20% (10px × 0.8) */
+        border-radius: 0 0 6px 6px; /* Уменьшили на 20% (8px × 0.8) */
         flex-grow: 0;
         height: auto;
-        padding: 8px; /* Уменьшили на 20% (10px × 0.8) */
+        padding: 6px; /* Уменьшили на 20% (8px × 0.8) */
     }
     
     .calendar-header {
-        margin-bottom: 8px; /* Уменьшили на 20% (10px × 0.8) */
+        margin-bottom: 25px; /* УВЕЛИЧИЛИ расстояние между заголовком и числами */
     }
     
     .calendar-header h2 {
-        font-size: 2.4rem; /* Уменьшили на 20% (3rem × 0.8) */
+        font-size: 1.92rem; /* Уменьшили на 20% (2.4rem × 0.8) */
     }
     
     .calendar-header button {
-        width: 32px; /* Уменьшили на 20% (40px × 0.8) */
-        height: 32px;
-        font-size: 1rem; /* Уменьшили на 20% (1.2rem × 0.8) */
+        width: 26px; /* Уменьшили на 20% (32px × 0.8) */
+        height: 26px;
+        font-size: 0.8rem; /* Уменьшили на 20% (1rem × 0.8) */
     }
     
     .weekdays {
-       margin-bottom: 8px; /* УВЕЛИЧИЛИ расстояние (было 4px) */
+        margin-bottom: 10px; /* УВЕЛИЧИЛИ расстояние между днями недели и числами */
     }
     
     .weekdays div {
-        font-size: 1.44rem; /* Уменьшили на 20% (1.8rem × 0.8) */
-        padding: 6px 0; /* Уменьшили на 20% (8px × 0.75) */
+        font-size: 1.15rem; /* Уменьшили на 20% (1.44rem × 0.8) */
+        padding: 5px 0; /* Уменьшили на 20% (6px × 0.8) */
     }
     
     .days {
-        gap: 2.4px; /* Уменьшили на 20% (3px × 0.8) */
+        gap: 1.9px; /* Уменьшили на 20% (2.4px × 0.8) */
     }
     
     .days div {
-        font-size: 1.6rem; /* Уменьшили на 20% (2rem × 0.8) */
-        min-height: 32px; /* Уменьшили на 20% (40px × 0.8) */
-        border-radius: 4px; /* Уменьшили на 20% (5px × 0.8) */
+        font-size: 1.28rem; /* Уменьшили на 20% (1.6rem × 0.8) */
+        min-height: 26px; /* Уменьшили на 20% (32px × 0.8) */
+        border-radius: 3px; /* Уменьшили на 20% (4px × 0.8) */
     }
 }
-
