@@ -88,6 +88,25 @@ function updateCurrentTime() {
     }
 }
 
+// Обработчики для новых кнопок навигации
+document.getElementById('searchDate').addEventListener('click', function() {
+    const targetDate = prompt('Введите дату в формате ДД.ММ.ГГГГ (например, 25.12.2024):');
+    if (targetDate) {
+        const [day, month, year] = targetDate.split('.').map(Number);
+        if (day && month && year) {
+            currentDate = new Date(year, month - 1, day);
+            generateCalendar();
+        } else {
+            alert('Неверный формат даты!');
+        }
+    }
+});
+
+document.getElementById('goHome').addEventListener('click', function() {
+    currentDate = new Date();
+    generateCalendar();
+});
+
 // Запускаем часы и обновляем каждую секунду
 updateCurrentTime();
 setInterval(updateCurrentTime, 1000);
