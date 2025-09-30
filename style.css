@@ -354,3 +354,11 @@ body {
     }
 }
 
+/* ВЫДЕЛЕНИЕ ИСКОМОЙ ДАТЫ - ЗЕЛЁНЫЙ ЦВЕТ ДЛЯ ПОИСКА */
+.days div.searched {
+    background: #34a853 !important; /* ЯРКИЙ ЗЕЛЁНЫЙ ЦВЕТ */
+    color: white !important;
+    border: 3px solid #2e8b47;
+    box-shadow: 0 0 10px rgba(52, 168, 83, 0.5);
+    font-weight: 900;
+}
