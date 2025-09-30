@@ -185,58 +185,60 @@ body {
 /* Адаптация для компьютеров */
 @media (min-width: 768px) {
     .container {
-        max-width: 600px; /* Вернули исходную ширину */
+        max-width: 600px;
         margin: 20px auto;
-        min-height: auto; /* Вернули авто-высоту */
+        min-height: auto;
         height: auto;
         max-height: none;
     }
     
     .header {
-        min-height: 140px; /* Вернули исходную высоту */
-        padding: 30px 12px; /* Вернули исходные отступы */
+        min-height: 140px;
+        padding: 30px 12px;
         border-radius: 10px 10px 0 0;
     }
     
     .current-time {
-        font-size: 5rem; /* Вернули исходный размер */
+        font-size: 5rem;
     }
     
     .calendar {
         border-radius: 0 0 10px 10px;
-        flex-grow: 0; /* Оставляем без растягивания */
+        flex-grow: 0;
         height: auto;
-        padding: 10px; /* Вернули исходные отступы */
+        padding: 8px; /* Немного уменьшили отступы */
     }
     
     .days {
-        flex-grow: 0; /* Оставляем без растягивания */
+        flex-grow: 0;
         height: auto;
-        gap: 2px; /* Уменьшили отступы между ячейками */
+        gap: 1px; /* Минимальные отступы между ячейками */
     }
     
     .days div {
-        font-size: 1.4rem; /* Уменьшили только числа */
-        min-height: 30px; /* Уменьшили высоту ячеек */
-        border-radius: 3px; /* Немного уменьшили скругление */
+        font-size: 2rem; /* ВЕРНУЛИ БОЛЬШИЕ ЧИСЛА */
+        min-height: 35px; /* Уменьшили высоту ячеек */
+        aspect-ratio: 1;
+        width: 100%;
+        padding: 0; /* Убрали внутренние отступы */
     }
     
     .weekdays div {
-        font-size: 1.3rem; /* Немного уменьшили дни недели */
-        padding: 4px 0; /* Уменьшили отступы дней недели */
+        font-size: 1.6rem; /* Вернули нормальный размер */
+        padding: 2px 0; /* Уменьшили отступы дней недели */
     }
     
     .calendar-header h2 {
-        font-size: 2.2rem; /* Немного уменьшили заголовок месяца */
+        font-size: 2.8rem; /* Вернули большой размер */
     }
     
     .calendar-header button {
-        width: 35px; /* Немного уменьшили кнопки */
-        height: 35px;
-        font-size: 1rem; /* Немного уменьшили стрелки */
+        width: 40px; /* Вернули исходный размер */
+        height: 40px;
+        font-size: 1.2rem; /* Вернули исходный размер */
     }
     
     .calendar-header {
-        margin-bottom: 8px; /* Немного уменьшили отступ */
+        margin-bottom: 8px;
     }
 }
