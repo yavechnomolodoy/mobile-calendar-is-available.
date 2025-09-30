@@ -4,8 +4,9 @@ const daysContainer = document.getElementById('daysContainer');
 const prevMonthButton = document.getElementById('prevMonth');
 const nextMonthButton = document.getElementById('nextMonth');
 
-// Текущая дата
+// Текущая дата и искомая дата
 let currentDate = new Date();
+let searchedDate = null;
 
 // Функция генерации календаря
 function generateCalendar() {
@@ -58,6 +59,14 @@ function generateCalendar() {
             dayElement.classList.add('today');
         }
         
+        // Проверяем, является ли день искомой датой
+        if (searchedDate && 
+            i === searchedDate.getDate() && 
+            month === searchedDate.getMonth() && 
+            year === searchedDate.getFullYear()) {
+            dayElement.classList.add('searched');
+        }
+        
         daysContainer.appendChild(dayElement);
         dayCounter++;
     }
@@ -88,21 +97,80 @@ function updateCurrentTime() {
     }
 }
 
-// Обработчики для новых кнопок навигации
+// Обработчик для кнопки "Поиск даты" с автозаполнением точек и выделением
 document.getElementById('searchDate').addEventListener('click', function() {
-    const targetDate = prompt('Введите дату в формате ДД.ММ.ГГГГ (например, 25.12.2024):');
-    if (targetDate) {
-        const [day, month, year] = targetDate.split('.').map(Number);
-        if (day && month && year) {
-            currentDate = new Date(year, month - 1, day);
-            generateCalendar();
+    // Создаем стилизованное окно ввода с большим шрифтом
+    const input = prompt(
+        '🔍 ПОИСК ДАТЫ\n\n' +
+        'ВВЕДИТЕ 8 ЦИФР:\n' +
+        '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n' +
+        'ПРИМЕР: 2 5 1 2 2 0 2 4\n' +
+        'РЕЗУЛЬТАТ: 25.12.2024\n' +
+        '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n' +
+        'ЦИФРЫ ДАТЫ:'
+    );
+    
+    if (input) {
+        // Удаляем все НЕцифры
+        const cleanInput = input.replace(/\D/g, '');
+        
+        if (cleanInput.length === 8) {
+            // Автоматически разбиваем и форматируем с точками
+            const day = cleanInput.substring(0, 2);
+            const month = cleanInput.substring(2, 4);
+            const year = cleanInput.substring(4, 8);
+            
+            const formattedDate = `${day}.${month}.${year}`;
+            const dayNum = parseInt(day);
+            const monthNum = parseInt(month);
+            const yearNum = parseInt(year);
+            
+            // Проверяем корректность даты
+            const testDate = new Date(yearNum, monthNum - 1, dayNum);
+            
+            if (testDate.getDate() === dayNum && 
+                testDate.getMonth() === monthNum - 1 && 
+                testDate.getFullYear() === yearNum) {
+                
+                // Устанавливаем искомую дату и переходим к ней
+                searchedDate = testDate;
+                currentDate = new Date(testDate); // Копируем дату чтобы не менять оригинал
+                generateCalendar();
+                
+                // Показываем подтверждение с большой подсказкой
+                alert(
+                    '✅ ДАТА НАЙДЕНА!\n\n' +
+                    `■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n` +
+                    `ВЫ ИСКАЛИ: ${formattedDate}\n` +
+                    `■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n` +
+                    'Дата выделена 🟢 ЗЕЛЁНЫМ цветом'
+                );
+                
+            } else {
+                alert(
+                    '❌ ОШИБКА!\n\n' +
+                    'НЕКОРРЕКТНАЯ ДАТА!\n' +
+                    'Проверьте числа месяца и дня'
+                );
+            }
         } else {
-            alert('Неверный формат даты!');
+            alert(
+                '❌ ОШИБКА!\n\n' +
+                'НУЖНО 8 ЦИФР!\n\n' +
+                'ПРИМЕР ВВОДА:\n' +
+                '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n' +
+                '2 5 0 1 2 0 2 5\n' +
+                '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n' +
+                'РЕЗУЛЬТАТ: 25.01.2025'
+            );
         }
     }
 });
 
+// Обработчик для кнопки "Домой"
 document.getElementById('goHome').addEventListener('click', function() {
+    // Сбрасываем поиск и возвращаемся к сегодняшней дате
+    searchedDate = null;
     currentDate = new Date();
     generateCalendar();
 });
