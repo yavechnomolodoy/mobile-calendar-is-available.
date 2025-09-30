@@ -261,14 +261,14 @@ body {
         min-height: auto;
         height: auto;
         max-height: none;
-        flex-direction: row;
-        align-items: flex-start;
+        flex-direction: column; /* ВЕРНУЛИ КОЛОНКУ */
+        align-items: stretch;
     }
     
     .header {
         min-height: 90px;
         padding: 19px 12px;
-        border-radius: 6px 0 0 6px;
+        border-radius: 6px 6px 0 0; /* ВЕРНУЛИ ВСЕ СКРУГЛЕНИЯ */
         width: 100%;
     }
     
@@ -277,8 +277,8 @@ body {
     }
     
     .calendar {
-        border-radius: 0 6px 6px 0;
-        flex-grow: 1;
+        border-radius: 0; /* УБРАЛИ СКРУГЛЕНИЯ */
+        flex-grow: 0;
         padding: 6px;
     }
     
@@ -315,33 +315,34 @@ body {
         border-radius: 3px;
     }
     
-    /* Кнопки навигации - для компьютера (слева) */
+    /* Кнопки навигации - для компьютера (ПОД календарём) */
     .navigation {
-        flex-direction: column;
-        justify-content: flex-start;
-        background: #f8f9fa;
-        border-top: none;
-        border-right: 2px solid #f0f0f0;
-        padding: 15px 10px;
+        flex-direction: row; /* КНОПКИ В РЯД */
+        justify-content: space-around;
+        background: white;
+        border-top: 2px solid #f0f0f0;
+        border-right: none; /* УБРАЛИ ПРАВУЮ ГРАНИЦУ */
+        padding: 12px;
         position: static;
-        width: 80px;
-        min-height: 300px;
+        width: 100%;
+        min-height: auto;
+        border-radius: 0 0 6px 6px; /* СКРУГЛЕНИЯ СНИЗУ */
     }
     
     .nav-button {
-        flex-direction: column;
-        min-width: auto;
-        margin-bottom: 15px;
-        padding: 12px 8px;
+        flex-direction: row; /* ИКОНКА И ТЕКСТ В РЯД */
+        min-width: 120px;
+        margin-bottom: 0;
+        padding: 10px 15px;
+        gap: 8px;
     }
     
     .nav-icon {
-        font-size: 1.4rem;
-        margin-bottom: 6px;
+        font-size: 1.2rem;
+        margin-bottom: 0;
     }
     
     .nav-text {
-        font-size: 0.8rem;
-        text-align: center;
+        font-size: 0.9rem;
     }
 }
