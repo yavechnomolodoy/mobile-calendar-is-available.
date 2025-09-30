@@ -3,6 +3,7 @@ const monthYearElement = document.getElementById('monthYear');
 const daysContainer = document.getElementById('daysContainer');
 const prevMonthButton = document.getElementById('prevMonth');
 const nextMonthButton = document.getElementById('nextMonth');
+const dateInput = document.getElementById('dateInput');
 
 // Текущая дата и искомая дата
 let currentDate = new Date();
@@ -97,74 +98,56 @@ function updateCurrentTime() {
     }
 }
 
-// Обработчик для кнопки "Поиск даты" с автозаполнением точек и выделением
+// Обработчик для кнопки "Поиск даты" с автозаполнением точек
 document.getElementById('searchDate').addEventListener('click', function() {
-    // Создаем стилизованное окно ввода с большим шрифтом
-    const input = prompt(
-        '🔍 ПОИСК ДАТЫ\n\n' +
-        'ВВЕДИТЕ 8 ЦИФР:\n' +
-        '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n' +
-        'ПРИМЕР: 2 5 1 2 2 0 2 4\n' +
-        'РЕЗУЛЬТАТ: 25.12.2024\n' +
-        '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n' +
-        'ЦИФРЫ ДАТЫ:'
-    );
+    // Показываем поле ввода
+    dateInput.style.display = 'block';
+    dateInput.focus();
+    dateInput.value = '';
+});
+
+// Обработчик ввода с автоформатированием
+dateInput.addEventListener('input', function(e) {
+    let value = e.target.value.replace(/\D/g, ''); // Удаляем все нецифры
     
-    if (input) {
-        // Удаляем все НЕцифры
-        const cleanInput = input.replace(/\D/g, '');
+    // Автоматически ставим точки после 2-й и 5-й цифр
+    if (value.length > 4) {
+        value = value.substring(0, 2) + '.' + value.substring(2, 4) + '.' + value.substring(4, 8);
+    } else if (value.length > 2) {
+        value = value.substring(0, 2) + '.' + value.substring(2, 4);
+    }
+    
+    e.target.value = value;
+    
+    // Если введено 8 цифр (ДДММГГГГ), обрабатываем дату
+    const cleanValue = value.replace(/\D/g, '');
+    if (cleanValue.length === 8) {
+        const day = parseInt(cleanValue.substring(0, 2));
+        const month = parseInt(cleanValue.substring(2, 4));
+        const year = parseInt(cleanValue.substring(4, 8));
         
-        if (cleanInput.length === 8) {
-            // Автоматически разбиваем и форматируем с точками
-            const day = cleanInput.substring(0, 2);
-            const month = cleanInput.substring(2, 4);
-            const year = cleanInput.substring(4, 8);
+        const testDate = new Date(year, month - 1, day);
+        
+        if (testDate.getDate() === day && 
+            testDate.getMonth() === month - 1 && 
+            testDate.getFullYear() === year) {
             
-            const formattedDate = `${day}.${month}.${year}`;
-            const dayNum = parseInt(day);
-            const monthNum = parseInt(month);
-            const yearNum = parseInt(year);
+            // Устанавливаем искомую дату и переходим к ней
+            searchedDate = testDate;
+            currentDate = new Date(testDate);
+            generateCalendar();
             
-            // Проверяем корректность даты
-            const testDate = new Date(yearNum, monthNum - 1, dayNum);
-            
-            if (testDate.getDate() === dayNum && 
-                testDate.getMonth() === monthNum - 1 && 
-                testDate.getFullYear() === yearNum) {
-                
-                // Устанавливаем искомую дату и переходим к ней
-                searchedDate = testDate;
-                currentDate = new Date(testDate); // Копируем дату чтобы не менять оригинал
-                generateCalendar();
-                
-                // Показываем подтверждение с большой подсказкой
-                alert(
-                    '✅ ДАТА НАЙДЕНА!\n\n' +
-                    `■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n` +
-                    `ВЫ ИСКАЛИ: ${formattedDate}\n` +
-                    `■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n` +
-                    'Дата выделена 🟢 ЗЕЛЁНЫМ цветом'
-                );
-                
-            } else {
-                alert(
-                    '❌ ОШИБКА!\n\n' +
-                    'НЕКОРРЕКТНАЯ ДАТА!\n' +
-                    'Проверьте числа месяца и дня'
-                );
-            }
-        } else {
-            alert(
-                '❌ ОШИБКА!\n\n' +
-                'НУЖНО 8 ЦИФР!\n\n' +
-                'ПРИМЕР ВВОДА:\n' +
-                '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n' +
-                '2 5 0 1 2 0 2 5\n' +
-                '■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■\n\n' +
-                'РЕЗУЛЬТАТ: 25.01.2025'
-            );
+            // Скрываем поле ввода после успешного ввода
+            dateInput.style.display = 'none';
+            dateInput.value = '';
         }
     }
+});
+
+// Скрываем поле ввода при потере фокуса
+dateInput.addEventListener('blur', function() {
+    dateInput.style.display = 'none';
+    dateInput.value = '';
 });
 
 // Обработчик для кнопки "Домой"
