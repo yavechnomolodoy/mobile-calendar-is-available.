@@ -185,61 +185,58 @@ body {
 /* Адаптация для компьютеров */
 @media (min-width: 768px) {
     .container {
-        max-width: 600px;
-        margin: 20px auto; /* Отступы сверху и снизу */
-    }
-    
-  /* Адаптация для компьютеров */
-@media (min-width: 768px) {
-    .container {
-        max-width: 600px;
+        max-width: 480px; /* Уменьшили на 20% (600px × 0.8) */
         margin: 20px auto;
-        min-height: 650px; /* Увеличили высоту */
-        height: auto; /* Разрешаем растягивание */
-        max-height: none; /* Убираем ограничение */
-    }
-    
-    /* Адаптация для компьютеров */
-@media (min-width: 768px) {
-    .container {
-        max-width: 600px;
-        margin: 20px auto;
-        min-height: 650px; /* Увеличили высоту */
-        height: auto; /* Разрешаем растягивание */
-        max-height: none; /* Убираем ограничение */
+        min-height: 520px; /* Уменьшили на 20% (650px × 0.8) */
+        height: auto;
+        max-height: none;
     }
     
     .header {
-        min-height: 140px;
-        padding: 30px 12px;
+        min-height: 112px; /* Уменьшили на 20% (140px × 0.8) */
+        padding: 24px 12px; /* Уменьшили на 20% (30px × 0.8) */
         border-radius: 10px 10px 0 0;
     }
     
     .current-time {
-        font-size: 5rem;
+        font-size: 4rem; /* Уменьшили на 20% (5rem × 0.8) */
     }
     
     .calendar {
         border-radius: 0 0 10px 10px;
-        flex-grow: 1; /* Разрешаем растягивание */
+        flex-grow: 1;
         height: auto;
+        padding: 8px; /* Уменьшили на 20% (10px × 0.8) */
     }
     
     .days {
-        flex-grow: 1; /* Разрешаем растягивание */
+        flex-grow: 1;
         height: auto;
+        gap: 2.4px; /* Уменьшили на 20% (3px × 0.8) */
     }
     
     .days div {
-        font-size: 2.2rem;
-        min-height: 50px;
+        font-size: 1.76rem; /* Уменьшили на 20% (2.2rem × 0.8) */
+        min-height: 40px; /* Уменьшили на 20% (50px × 0.8) */
+        border-radius: 4px; /* Уменьшили на 20% (5px × 0.8) */
     }
     
     .weekdays div {
-        font-size: 2rem;
+        font-size: 1.6rem; /* Уменьшили на 20% (2rem × 0.8) */
+        padding: 6px 0; /* Уменьшили на 20% (8px × 0.75) */
     }
     
     .calendar-header h2 {
-        font-size: 3.2rem;
+        font-size: 2.56rem; /* Уменьшили на 20% (3.2rem × 0.8) */
+    }
+    
+    .calendar-header button {
+        width: 32px; /* Уменьшили на 20% (40px × 0.8) */
+        height: 32px;
+        font-size: 0.96rem; /* Уменьшили на 20% (1.2rem × 0.8) */
+    }
+    
+    .calendar-header {
+        margin-bottom: 8px; /* Уменьшили на 20% (10px × 0.8) */
     }
 }
