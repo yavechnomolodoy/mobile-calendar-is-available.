@@ -17,8 +17,9 @@ body {
     background: white;
     display: flex;
     flex-direction: column;
-    height: auto; /* Убрали растягивание на всю высоту */
+    height: auto;
     min-height: auto;
+    position: relative;
 }
 
 /* Шапка - БОЛЬШАЯ */
@@ -35,7 +36,7 @@ body {
 }
 
 .current-time {
-    font-size: 4.5rem; /* ОЧЕНЬ БОЛЬШИЕ часы */
+    font-size: 4.5rem;
     font-weight: 900;
     font-family: 'Courier New', monospace;
 }
@@ -46,8 +47,8 @@ body {
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: auto; /* Не растягиваем по высоте */
-    flex-grow: 0; /* Отключаем растягивание */
+    height: auto;
+    flex-grow: 0;
 }
 
 .calendar-header {
@@ -104,8 +105,8 @@ body {
     grid-template-columns: repeat(7, 1fr);
     gap: 3px;
     width: 100%;
-    height: auto; /* Не растягиваем по высоте */
-    flex-grow: 0; /* Отключаем растягивание */
+    height: auto;
+    flex-grow: 0;
 }
 
 .days div {
@@ -115,11 +116,11 @@ body {
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.2s;
-    font-size: 2rem; /* БОЛЬШИЕ числа */
+    font-size: 2rem;
     font-weight: 900;
-    aspect-ratio: 1; /* Квадратные ячейки */
+    aspect-ratio: 1;
     width: 100%;
-    min-height: 40px; /* Фиксированная минимальная высота */
+    min-height: 40px;
 }
 
 /* Субботние и воскресные дни (6-й и 7-й столбцы) */
@@ -135,6 +136,46 @@ body {
 .days div.today {
     background: #4285f4;
     color: white;
+}
+
+/* Кнопки навигации - для телефона (снизу) */
+.navigation {
+    display: flex;
+    justify-content: space-around;
+    background: white;
+    border-top: 2px solid #f0f0f0;
+    padding: 10px;
+    position: sticky;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.nav-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    border: none;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: background-color 0.2s;
+    min-width: 80px;
+}
+
+.nav-button:hover {
+    background: #f0f0f0;
+}
+
+.nav-icon {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+}
+
+.nav-text {
+    font-size: 0.9rem;
+    font-weight: 500;
 }
 
 /* Адаптация для очень маленьких экранов */
@@ -154,6 +195,19 @@ body {
     
     .weekdays div {
         font-size: 1.4rem;
+    }
+    
+    .nav-button {
+        min-width: 70px;
+        padding: 6px 12px;
+    }
+    
+    .nav-icon {
+        font-size: 1.3rem;
+    }
+    
+    .nav-text {
+        font-size: 0.8rem;
     }
 }
 
@@ -180,64 +234,114 @@ body {
     .weekdays div {
         font-size: 1.8rem;
     }
+    
+    .navigation {
+        padding: 12px;
+    }
+    
+    .nav-button {
+        min-width: 90px;
+        padding: 10px 20px;
+    }
+    
+    .nav-icon {
+        font-size: 1.6rem;
+    }
+    
+    .nav-text {
+        font-size: 0.95rem;
+    }
 }
+
 /* Адаптация для компьютеров */
 @media (min-width: 768px) {
     .container {
-        max-width: 384px; /* Уменьшили на 20% (480px × 0.8) */
-        margin: 13px auto; /* Уменьшили на 20% (16px × 0.8) */
+        max-width: 384px;
+        margin: 13px auto;
         min-height: auto;
         height: auto;
         max-height: none;
+        flex-direction: row;
+        align-items: flex-start;
     }
     
     .header {
-        min-height: 90px; /* Уменьшили на 20% (112px × 0.8) */
-        padding: 19px 12px; /* Уменьшили на 20% (24px × 0.8) */
-        border-radius: 6px 6px 0 0; /* Уменьшили на 20% (8px × 0.8) */
+        min-height: 90px;
+        padding: 19px 12px;
+        border-radius: 6px 0 0 6px;
+        width: 100%;
     }
     
     .current-time {
-        font-size: 3.2rem; /* Уменьшили на 20% (4rem × 0.8) */
+        font-size: 3.2rem;
     }
     
     .calendar {
-        border-radius: 0 0 6px 6px; /* Уменьшили на 20% (8px × 0.8) */
-        flex-grow: 0;
-        height: auto;
-        padding: 6px; /* Уменьшили на 20% (8px × 0.8) */
+        border-radius: 0 6px 6px 0;
+        flex-grow: 1;
+        padding: 6px;
     }
     
     .calendar-header {
-        margin-bottom: 25px; /* УВЕЛИЧИЛИ расстояние между заголовком и числами */
+        margin-bottom: 25px;
     }
     
     .calendar-header h2 {
-        font-size: 1.92rem; /* Уменьшили на 20% (2.4rem × 0.8) */
+        font-size: 1.92rem;
     }
     
     .calendar-header button {
-        width: 26px; /* Уменьшили на 20% (32px × 0.8) */
+        width: 26px;
         height: 26px;
-        font-size: 0.8rem; /* Уменьшили на 20% (1rem × 0.8) */
+        font-size: 0.8rem;
     }
     
     .weekdays {
-        margin-bottom: 10px; /* УВЕЛИЧИЛИ расстояние между днями недели и числами */
+        margin-bottom: 10px;
     }
     
     .weekdays div {
-        font-size: 1.15rem; /* Уменьшили на 20% (1.44rem × 0.8) */
-        padding: 5px 0; /* Уменьшили на 20% (6px × 0.8) */
+        font-size: 1.15rem;
+        padding: 5px 0;
     }
     
     .days {
-        gap: 1.9px; /* Уменьшили на 20% (2.4px × 0.8) */
+        gap: 1.9px;
     }
     
     .days div {
-        font-size: 1.28rem; /* Уменьшили на 20% (1.6rem × 0.8) */
-        min-height: 26px; /* Уменьшили на 20% (32px × 0.8) */
-        border-radius: 3px; /* Уменьшили на 20% (4px × 0.8) */
+        font-size: 1.28rem;
+        min-height: 26px;
+        border-radius: 3px;
+    }
+    
+    /* Кнопки навигации - для компьютера (слева) */
+    .navigation {
+        flex-direction: column;
+        justify-content: flex-start;
+        background: #f8f9fa;
+        border-top: none;
+        border-right: 2px solid #f0f0f0;
+        padding: 15px 10px;
+        position: static;
+        width: 80px;
+        min-height: 300px;
+    }
+    
+    .nav-button {
+        flex-direction: column;
+        min-width: auto;
+        margin-bottom: 15px;
+        padding: 12px 8px;
+    }
+    
+    .nav-icon {
+        font-size: 1.4rem;
+        margin-bottom: 6px;
+    }
+    
+    .nav-text {
+        font-size: 0.8rem;
+        text-align: center;
     }
 }
