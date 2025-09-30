@@ -253,7 +253,7 @@ body {
     }
 }
 
-/* Адаптация для компьютеров */
+/* АДАПТАЦИЯ ДЛЯ КОМПЬЮТЕРОВ - ЭКРАНЫ ОТ 768PX */
 @media (min-width: 768px) {
     .container {
         max-width: 384px;
@@ -261,67 +261,67 @@ body {
         min-height: auto;
         height: auto;
         max-height: none;
-        flex-direction: column; /* ВЕРНУЛИ КОЛОНКУ */
+        flex-direction: column; /* ВЕРТИКАЛЬНАЯ СТРУКТУРА */
         align-items: stretch;
     }
     
     .header {
         min-height: 90px;
         padding: 19px 12px;
-        border-radius: 6px 6px 0 0; /* ВЕРНУЛИ ВСЕ СКРУГЛЕНИЯ */
+        border-radius: 6px 6px 0 0; /* СКРУГЛЕНИЯ СВЕРХУ */
         width: 100%;
     }
     
     .current-time {
-        font-size: 3.2rem;
+        font-size: 3.2rem; /* БОЛЬШИЕ ЧАСЫ */
     }
     
     .calendar {
-        border-radius: 0; /* УБРАЛИ СКРУГЛЕНИЯ */
+        border-radius: 0; /* БЕЗ СКРУГЛЕНИЙ ПО БОКАМ */
         flex-grow: 0;
         padding: 6px;
     }
     
     .calendar-header {
-        margin-bottom: 25px;
+        margin-bottom: 25px; /* БОЛЬШОЕ РАССТОЯНИЕ МЕЖДУ ЗАГОЛОВКОМ И ЧИСЛАМИ */
     }
     
     .calendar-header h2 {
-        font-size: 1.92rem;
+        font-size: 1.92rem; /* ЗАГОЛОВОК МЕСЯЦА */
     }
     
     .calendar-header button {
         width: 26px;
         height: 26px;
-        font-size: 0.8rem;
+        font-size: 0.8rem; /* КНОПКИ ПЕРЕКЛЮЧЕНИЯ МЕСЯЦЕВ */
     }
     
     .weekdays {
-        margin-bottom: 10px;
+        margin-bottom: 10px; /* РАССТОЯНИЕ МЕЖДУ ДНЯМИ НЕДЕЛИ И ЧИСЛАМИ */
     }
     
     .weekdays div {
-        font-size: 1.15rem;
+        font-size: 1.15rem; /* ДНИ НЕДЕЛИ */
         padding: 5px 0;
     }
     
     .days {
-        gap: 1.9px;
+        gap: 1.9px; /* РАССТОЯНИЕ МЕЖДУ ЯЧЕЙКАМИ */
     }
     
     .days div {
-        font-size: 1.28rem;
-        min-height: 26px;
-        border-radius: 3px;
+        font-size: 1.28rem; /* ЧИСЛА В КАЛЕНДАРЕ */
+        min-height: 26px; /* ВЫСОТА ЯЧЕЕК */
+        border-radius: 3px; /* СКРУГЛЕНИЯ ЯЧЕЕК */
     }
     
-    /* Кнопки навигации - для компьютера (ПОД календарём) */
+    /* КНОПКИ НАВИГАЦИИ - ДЛЯ КОМПЬЮТЕРА (ПОД КАЛЕНДАРЁМ) */
     .navigation {
         flex-direction: row; /* КНОПКИ В РЯД */
         justify-content: space-around;
         background: white;
-        border-top: 2px solid #f0f0f0;
-        border-right: none; /* УБРАЛИ ПРАВУЮ ГРАНИЦУ */
+        border-top: 2px solid #f0f0f0; /* ГРАНИЦА СВЕРХУ */
+        border-right: none; /* БЕЗ ПРАВОЙ ГРАНИЦЫ */
         padding: 12px;
         position: static;
         width: 100%;
@@ -334,15 +334,15 @@ body {
         min-width: 120px;
         margin-bottom: 0;
         padding: 10px 15px;
-        gap: 8px;
+        gap: 8px; /* РАССТОЯНИЕ МЕЖДУ ИКОНКОЙ И ТЕКСТОМ */
     }
     
     .nav-icon {
-        font-size: 1.2rem;
+        font-size: 1.2rem; /* РАЗМЕР ИКОНОК */
         margin-bottom: 0;
     }
     
     .nav-text {
-        font-size: 0.9rem;
+        font-size: 0.9rem; /* РАЗМЕР ТЕКСТА КНОПОК */
     }
 }
