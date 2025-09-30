@@ -341,8 +341,16 @@ body {
         font-size: 1.2rem; /* РАЗМЕР ИКОНОК */
         margin-bottom: 0;
     }
-    
+    /* ВЫДЕЛЕНИЕ ИСКОМОЙ ДАТЫ - ЗЕЛЁНЫЙ ЦВЕТ ДЛЯ ПОИСКА */
+.days div.searched {
+    background: #34a853 !important; /* ЯРКИЙ ЗЕЛЁНЫЙ ЦВЕТ */
+    color: white !important;
+    border: 3px solid #2e8b47;
+    box-shadow: 0 0 10px rgba(52, 168, 83, 0.5);
+    font-weight: 900;
+}
     .nav-text {
         font-size: 0.9rem; /* РАЗМЕР ТЕКСТА КНОПОК */
     }
 }
+
