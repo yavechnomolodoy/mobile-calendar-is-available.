@@ -223,7 +223,7 @@ body {
     }
     
     .weekdays {
-        margin-bottom: 4px; /* Уменьшили на 20% (5px × 0.8) */
+       margin-bottom: 8px; /* УВЕЛИЧИЛИ расстояние (было 4px) */
     }
     
     .weekdays div {
@@ -241,3 +241,4 @@ body {
         border-radius: 4px; /* Уменьшили на 20% (5px × 0.8) */
     }
 }
+
